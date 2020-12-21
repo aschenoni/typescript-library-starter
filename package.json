@@ -74,8 +74,10 @@
     ]
   },
   "prettier": {
-    "semi": false,
-    "singleQuote": true
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "semi": true
   },
   "commitlint": {
     "extends": [
@@ -83,6 +85,7 @@
     ]
   },
   "devDependencies": {
+    "harbinger-module": "*",
     "@commitlint/cli": "^7.1.2",
     "@commitlint/config-conventional": "^7.1.2",
     "@types/jest": "^23.3.2",
