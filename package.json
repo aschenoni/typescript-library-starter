@@ -1,15 +1,15 @@
 {
-  "name": "@harbinger/user",
+  "name": "--libraryname--",
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/lib/harbinger-user.js",
-  "module": "dist/harbinger-user.es5.js",
-  "typings": "dist/types/harbinger-user.d.ts",
+  "main": "dist/lib/--libraryname--.umd.js",
+  "module": "dist/lib/--libraryname--.es5.js",
+  "typings": "dist/types/--libraryname--.d.ts",
   "files": [
     "dist"
   ],
-  "author": "Austin <abjoyner@gmail.com>",
+  "author": "--username-- <--usermail-->",
   "repository": {
     "type": "git",
     "url": ""
