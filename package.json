@@ -1,15 +1,15 @@
 {
-  "name": "--libraryname--",
+  "name": "@harbinger/user",
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/--libraryname--.umd.js",
-  "module": "dist/--libraryname--.es5.js",
-  "typings": "dist/types/--libraryname--.d.ts",
+  "main": "dist/lib/harbinger-user.js",
+  "module": "dist/harbinger-user.es5.js",
+  "typings": "dist/types/harbinger-user.d.ts",
   "files": [
     "dist"
   ],
-  "author": "--username-- <--usermail-->",
+  "author": "Austin <abjoyner@gmail.com>",
   "repository": {
     "type": "git",
     "url": ""
@@ -21,7 +21,7 @@
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+    "build": "tsc --module commonjs",
     "start": "rollup -c rollup.config.ts -w",
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
@@ -73,23 +73,31 @@
       "src/*.{js,ts}"
     ]
   },
-  "prettier": {
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "semi": true
-  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
+  "dependencies": {
+    "@harbinger/module": "*",
+    "koa-swagger-decorator": "1.5.16"
+  },
   "devDependencies": {
-    "harbinger-module": "*",
     "@commitlint/cli": "^7.1.2",
     "@commitlint/config-conventional": "^7.1.2",
+    "@types/cron": "^1.7.2",
+    "@types/helmet": "^4.0.0",
     "@types/jest": "^23.3.2",
-    "@types/node": "^10.11.0",
+    "@types/koa": "2.0.49",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-helmet": "^3.1.2",
+    "@types/koa__cors": "^3.0.1",
+    "@types/koa__router": "^8.0.2",
+    "@types/node": "^12.12.6",
+    "@types/shelljs": "^0.8.7",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "class-validator": "^0.11.1",
     "colors": "^1.3.2",
     "commitizen": "^3.0.0",
     "coveralls": "^3.0.2",
@@ -102,6 +110,7 @@
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.14.3",
     "prompt": "^1.0.0",
+    "reflect-metadata": "^0.1.13",
     "replace-in-file": "^3.4.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.0",
@@ -119,6 +128,7 @@
     "tslint-config-prettier": "^1.15.0",
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.14.2",
+    "typeorm": "^0.2.24",
     "typescript": "^4.0.5"
   }
 }
