@@ -127,15 +127,12 @@ function libraryNameSuggestedAccept() {
  * lowercased and returned
  */
 function libraryNameSuggested() {
-  return process.argv[2] || "NOTHING";
-  // return (
-  //   "@harbinger/" +
-  //   path
-  //     .basename(path.resolve(__dirname, ".."))
-  //     .replace(/[^\w\d]|_/g, "-")
-  //     .replace(/^-+|-+$/g, "")
-  //     .toLowerCase()
-  // );
+  let baseName = path
+    .basename(path.resolve(__dirname, ".."))
+    .replace(/[^\w\d]|_/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase();
+  return process.env.LIB_PREFIX ? process.env.LIB_PREFIX + "/" + baseName : baseName;
 }
 
 /**
