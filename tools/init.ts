@@ -227,7 +227,7 @@ function renameItems(libraryName: string) {
     // Files[1] is the new name
     let newFilename = files[1].replace(/--libraryname--/g, libraryName);
     if (process.env.LIB_PREFIX) {
-      newFilename = newFilename.replace(process.env.LIB_PREFIX, "");
+      newFilename = newFilename.replace(process.env.LIB_PREFIX + "/", "");
     }
     mv(path.resolve(__dirname, "..", files[0]), path.resolve(__dirname, "..", newFilename));
     console.log(colors.cyan(files[0] + " => " + newFilename));
