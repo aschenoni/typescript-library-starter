@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/lib/--libraryname--.umd.js",
+  "main": "dist/lib/--libraryname--.js",
   "module": "dist/lib/--libraryname--.es5.js",
   "typings": "dist/types/--libraryname--.d.ts",
   "files": [
