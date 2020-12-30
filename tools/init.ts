@@ -24,8 +24,8 @@ const modifyFiles = [
   "tools/gh-pages-publish.ts"
 ];
 const renameFiles = [
-  ["src/library.ts", "src/--libraryname--.ts"]
-  // ["test/library.test.ts", "test/--libraryname--.test.ts"],
+  ["src/library.ts", "src/--libraryname--.ts"],
+  ["test/library.test.ts", "test/--libraryname--.test.ts"]
 ];
 
 const _promptSchemaLibraryName = {
