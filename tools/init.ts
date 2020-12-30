@@ -13,7 +13,7 @@ const { fork } = require("child_process");
 const rmDirs = [".git"];
 const rmFiles = [
   ".all-contributorsrc",
-  ".gitattributes",
+  ".gitattributes"
   // "tools/init.ts"
 ];
 const modifyFiles = [
@@ -21,11 +21,11 @@ const modifyFiles = [
   "package.json",
   "rollup.config.ts",
   "test/library.test.ts",
-  "tools/gh-pages-publish.ts",
+  "tools/gh-pages-publish.ts"
 ];
 const renameFiles = [
-  ["src/library.ts", "src/--libraryname--.ts"],
-  ["test/library.test.ts", "test/--libraryname--.test.ts"],
+  ["src/library.ts", "src/--libraryname--.ts"]
+  // ["test/library.test.ts", "test/--libraryname--.test.ts"],
 ];
 
 const _promptSchemaLibraryName = {
@@ -35,9 +35,9 @@ const _promptSchemaLibraryName = {
       pattern: /^[a-z]+(\-[a-z]+)*$/,
       type: "string",
       required: true,
-      message: '"kebab-case" uses lowercase letters, and hyphens for any punctuation',
-    },
-  },
+      message: '"kebab-case" uses lowercase letters, and hyphens for any punctuation'
+    }
+  }
 };
 
 const _promptSchemaLibrarySuggest = {
@@ -49,9 +49,9 @@ const _promptSchemaLibrarySuggest = {
       pattern: /^(y(es)?|n(o)?)$/i,
       type: "string",
       required: true,
-      message: 'You need to type "Yes" or "No" to continue...',
-    },
-  },
+      message: 'You need to type "Yes" or "No" to continue...'
+    }
+  }
 };
 
 _prompt.start();
@@ -182,7 +182,7 @@ function removeItems() {
   let rmItems = rmDirs.concat(rmFiles);
   rm(
     "-rf",
-    rmItems.map((f) => path.resolve(__dirname, "..", f))
+    rmItems.map(f => path.resolve(__dirname, "..", f))
   );
   console.log(colors.red(rmItems.join("\n")));
 
@@ -199,12 +199,12 @@ function removeItems() {
 function modifyContents(libraryName: string, username: string, usermail: string) {
   console.log(colors.underline.white("Modified"));
 
-  let files = modifyFiles.map((f) => path.resolve(__dirname, "..", f));
+  let files = modifyFiles.map(f => path.resolve(__dirname, "..", f));
   try {
     const changes = replace.sync({
       files,
       from: [/--libraryname--/g, /--username--/g, /--usermail--/g],
-      to: [libraryName, username, usermail],
+      to: [libraryName, username, usermail]
     });
     console.log(colors.yellow(modifyFiles.join("\n")));
   } catch (error) {
@@ -222,7 +222,7 @@ function modifyContents(libraryName: string, username: string, usermail: string)
 function renameItems(libraryName: string) {
   console.log(colors.underline.white("Renamed"));
 
-  renameFiles.forEach(function (files) {
+  renameFiles.forEach(function(files) {
     // Files[0] is the current filename
     // Files[1] is the new name
     let newFilename = files[1].replace(/--libraryname--/g, libraryName);
@@ -241,7 +241,7 @@ function finalize() {
 
   // Recreate Git folder
   let gitInitOutput = exec('git init "' + path.resolve(__dirname, "..") + '"', {
-    silent: true,
+    silent: true
   }).stdout;
   console.log(colors.green(gitInitOutput.replace(/(\n|\r)+/g, "")));
 
