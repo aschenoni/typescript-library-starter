@@ -79,7 +79,6 @@
     ]
   },
   "dependencies": {
-    "@harbinger/module": "*",
     "koa-swagger-decorator": "1.5.16"
   },
   "devDependencies": {
